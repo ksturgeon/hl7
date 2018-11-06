@@ -7,10 +7,10 @@ from mapr.ojai.ojai_query.QueryOp import QueryOp
 from mapr.ojai.storage.ConnectionFactory import ConnectionFactory
 
 # Create a connection to the mapr-db:
-host = "dag-5jmtwg.se.corp.maprtech.com"
+host = raw_input("DAG host:")
 username = "mapr"
 password = "maprmapr"
-tbl_path = "/test-table"
+tbl_path = "/user-table"
 
 connection_str = "{}:5678?auth=basic;user={};password={};ssl=false".format(host,username,password) 
 connection = ConnectionFactory.get_connection(connection_str=connection_str)
@@ -22,6 +22,7 @@ else:
   document_store = connection.create_store(store_path=tbl_path)
 
 # Create our sample json object from a larger json document (test-record.json)
+# Here we're using an input file - this could just as easily be the stream
 with open("test-record.json") as f:
     for line in f:
         # now that we've read the line - in this case json, lets create a json object and take some fields
@@ -40,7 +41,7 @@ with open("test-record.json") as f:
 	#Patient ID:
 	#patient_id = json.loads(line)['pid']['patient_identifier_list']['id_number']['st']
 	
-	# Create document and insert it into the database using a single ID
+	# Create OJAI document and insert it into the database using a single ID
     	d = connection.new_document(dictionary=msg_json)
     	document_store.insert_or_replace(doc=d, _id=msg_json['patient_identifier_list']['id_number']['st'])
-	print(msg_json['patient_identifier_list']['id_number']['st'])
+	print("User record with ID {} successfully written to the table".format(msg_json['patient_identifier_list']['id_number']['st']))
