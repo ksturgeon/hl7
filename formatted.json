@@ -1,0 +1,314 @@
+{"oru_r01_patient_result": {
+    "oru_r01_order_observation": {
+        "obr": {
+            "observation_date_time": {
+                "time": {
+                "dtm": "20160504142631"
+            }
+        }
+    }, 
+    "oru_r01_observation": [{
+        "obx": {
+            "observation_sub_id": {
+                "st": {
+                "st": "0"
+            }
+        }, 
+        "observation_identifier": {
+            "text": {
+                "st": "EctSta"}, 
+            "identifier": {
+                "st": "144"}, 
+            "name_of_coding_system": {
+                "id": "SDN"}
+        }, 
+            "value_type": {
+                "id": {
+                    "id": "ST"}
+                }, 
+        "observation_value": {
+                "varies_1": {
+                    "st": "\"\""}
+                }
+            }
+        },{
+        "obx": {
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "RhySta"}, 
+                "identifier": {
+                "st": "140"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "ST"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "Sinus Rhythm"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "%"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "SpO2"}, 
+                "identifier": {
+                "st": "188"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "100"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "rpm"}
+            },
+             "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "RR"}, 
+                "identifier": {
+                "st": "92"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "26"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "mm"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "ST-II"}, 
+                "identifier": {
+                "st": "1800"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "0.4"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "bpm"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "HR"}, 
+                "identifier": {
+                "st": "40"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "95"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "bpm"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "PVC"}, 
+                "identifier": {
+                "st": "136"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "0"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "bpm"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "Pulse"}, 
+                "identifier": {
+                "st": "44"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "95"}
+            }
+        }
+    }, {
+        "obx": {
+            "units": {
+                "identifier": {
+                "st": "mm"}
+            }, 
+            "observation_sub_id": {
+                "st": {
+                "st": "0"}
+            }, 
+            "observation_identifier": {
+                "text": {
+                "st": "ST-V"}, 
+                "identifier": {
+                "st": "4604"}, 
+                "name_of_coding_system": {
+                "id": "SDN"}
+            }, 
+            "value_type": {
+                "id": {
+                "id": "NM"}
+            }, 
+            "observation_value": {
+                "varies_1": {
+                "st": "0.2"}
+            }
+        }
+    }
+]}, 
+"oru_r01_patient": {
+    "oru_r01_visit": {
+        "pv1": {
+            "patient_class": {
+                "is": {
+                "is": "I"}
+            }, 
+            "assigned_patient_location": {
+                "bed": {
+                "is": ["C8", "16", "3"]}
+            }
+        }
+    }, 
+    "pid": {
+        "patient_identifier_list": {
+            "id_number": {
+            "st": "5466762689719"}
+        }, 
+        "patient_name": {
+            "family_name": {
+            "surname": "JOHN"}, 
+            "given_name": {
+            "st": "DUO"}
+        }
+    }
+}
+}, 
+"msh": {
+    "receiving_application": {
+        "namespace_id": {
+        "is": "LIS"}
+    }, 
+    "sending_facility": {
+        "namespace_id": {
+        "is": "LCA"}
+    }, 
+    "receiving_facility": {
+        "namespace_id": {
+        "is": "TEST9999"}
+    }, 
+    "encoding_characters": {
+        "st": {
+        "st": "\\S\\\\R\\\\E\\\\T\\"}
+    }, 
+    "sending_application": {
+        "namespace_id": {
+        "is": "LCS"}
+    }, "date_time_of_message": {
+        "time": {
+        "dtm": "2018"}
+    }, 
+    "message_control_id": {
+        "st": {
+        "st": "HP146238639119566933"}
+    }, 
+    "message_type": {
+        "message_code": {
+        "id": "ORU"}, 
+        "trigger_event": {
+        "id": "R01"}
+    }, 
+    "field_separator": {
+        "st": {
+        "st": "\\F\\"}
+    }
+}
+}

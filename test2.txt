@@ -1,0 +1,6 @@
+MSH|^~\&|SendingApp|SendingFac|ReceivingApp|ReceivingFac|20120411070545||ORU^R01|59689|P|
+PID|||5466762689719||JOHN^DUO\r
+PV1||I|^^C8&16&3\r
+OBR|||||||20160504142631\r
+OBX||ST|144^EctSta^SDN|0|""|\r
+
