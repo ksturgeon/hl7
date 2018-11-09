@@ -40,7 +40,7 @@ while running:
     if not msg.error():
         # msg.value is the raw string - if we assume it's in json, that's cool, we can do a json.loads and manipulate
         # We can grab the "pid" object from the full json - that is the patient info
-        msg_json = json.loads(msg.value)['pid']
+        msg_json = json.loads(msg.value())['pid']
 	    
         # Patient ID:
 	    # patient_id = json.loads(line)['pid']['patient_identifier_list']['id_number']['st']
