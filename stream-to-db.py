@@ -1,10 +1,12 @@
 import sys, datetime, time, json, os
 
-# No Kafka Client import confluent_kafka
+from confluent_kafka import Producer, Consumer, KafkaError
 
 # MapR-DB DAG client libs:
 from mapr.ojai.ojai_query.QueryOp import QueryOp
 from mapr.ojai.storage.ConnectionFactory import ConnectionFactory
+
+os.environ['LD_LIBRARY_PATH'] = "$LD_LIBRARY_PATH:/opt/mapr/lib"
 
 # Create a connection to the mapr-db:
 host = raw_input("DAG host:")
@@ -21,27 +23,31 @@ if connection.is_store_exists(store_path=tbl_path):
 else:
   document_store = connection.create_store(store_path=tbl_path)
 
-# Create our sample json object from a larger json document (test-record.json)
-# Here we're using an input file - this could just as easily be the stream
-with open("test-record.json") as f:
-    for line in f:
-        # now that we've read the line - in this case json, lets create a json object and take some fields
-	
-	# Some test/play json paths
-	# This seems to be who ordered the vaccine:
-        # msg_json = json.loads(line)['vxu_v04_order']['orc']
-	
-	#NK1 - looks like a responsible party like mother, etc.?:
-        #msg_json = json.loads(line)['nk1']
-	
-	#******Now the real stuff*****
-	# Let's pull out the patient information and add a record in mapr-db json
-	# the map named "pid" is the patient info, and we can use their id as document ID
-	msg_json = json.loads(line)['pid']
-	#Patient ID:
-	#patient_id = json.loads(line)['pid']['patient_identifier_list']['id_number']['st']
-	
-	# Create OJAI document and insert it into the database using a single ID
+# Create the Kakfa Consumer
+c = Consumer({'group.id': 'mygroup',
+              'default.topic.config': {'auto.offset.reset': 'earliest'}})
+c.subscribe(['/hl7stream:topic1'])
+
+#  Wait for new messages to be produced to the stream
+running = True
+while running:
+    msg = c.poll(timeout=1.0)
+    if msg is None: continue
+    if not msg.error():
+        # msg.value is the raw string - if we assume it's in json, that's cool, we can do a json.loads and manipulate
+        # We can grab the "pid" object from the full json - that is the patient info
+        msg_json = json.loads(msg.value)['pid']
+	    
+        # Patient ID:
+	    # patient_id = json.loads(line)['pid']['patient_identifier_list']['id_number']['st']
+
+        # Create OJAI document and insert it into the database using a single ID
     	d = connection.new_document(dictionary=msg_json)
     	document_store.insert_or_replace(doc=d, _id=msg_json['patient_identifier_list']['id_number']['st'])
-	print("User record with ID {} successfully written to the table".format(msg_json['patient_identifier_list']['id_number']['st']))
+        print("User record with ID {} successfully written to the table".format(msg_json['patient_identifier_list']['id_number']['st']))
+      
+    elif msg.error().code() != KafkaError._PARTITION_EOF:
+        print(msg.error())
+        running = False
+
+c.close()
