@@ -1,6 +1,8 @@
 import sys, datetime, time, json, os
 
 os.environ['LD_LIBRARY_PATH'] = "$LD_LIBRARY_PATH:/opt/mapr/lib"
+# Since the above doesn't seem to work:
+ask = input("did you set export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/mapr/lib or source .bashrc?")
 from confluent_kafka import Producer, Consumer, KafkaError
 
 # MapR-DB DAG client libs:
