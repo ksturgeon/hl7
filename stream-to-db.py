@@ -1,5 +1,6 @@
 import sys, datetime, time, json, os
 
+os.environ['LD_LIBRARY_PATH'] = "$LD_LIBRARY_PATH:/opt/mapr/lib"
 from confluent_kafka import Producer, Consumer, KafkaError
 
 # MapR-DB DAG client libs:
@@ -7,8 +8,6 @@ from mapr.ojai.ojai_query.QueryOp import QueryOp
 from mapr.ojai.storage.ConnectionFactory import ConnectionFactory
 
 os.environ['LD_LIBRARY_PATH'] = "$LD_LIBRARY_PATH:/opt/mapr/lib"
-# For some reason the above doesn't work, so ask - 
-ask = input("did you set export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/mapr/lib?")
 
 # Create a connection to the mapr-db:
 host = raw_input("DAG host:")
